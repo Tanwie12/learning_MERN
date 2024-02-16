@@ -21,6 +21,7 @@ export default function Updatepost() {
       setTitle(value);
     } else if (name === 'content') {
       setContent(value);
+      
     }
   };
   

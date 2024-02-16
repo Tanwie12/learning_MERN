@@ -31,7 +31,7 @@ function App() {
               </React.Fragment>
           }
           >
-                <Route path=':postId' element={<Singlepost/>} />
+                <Route path='/post:postId' element={<Singlepost/>} />
           </Route>
           <Route path='/editpost/:postId' element={<Updatepost/>} />
           

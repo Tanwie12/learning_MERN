@@ -2,9 +2,23 @@ import { Button } from '@material-tailwind/react';
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, Outlet } from 'react-router-dom'
+import { SelectAllpost, fetchPostData } from './states/postSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 export default function Postlist() {
-    const postData=useSelector(state=>state.post.posts)
-    console.log(postData);
+  const dispatch=useDispatch()
+    const postData=useSelector(SelectAllpost)
+    const postStatus=useSelector(state=>state.post.status);
+    
+    console.log(fetchPostData)
+    useEffect(()=>{
+        if(postStatus==='idle'){
+            dispatch(fetchPostData())
+        }
+    },[postStatus,dispatch])
+
+
+
     const renderedPosts=postData.map(post=>(
         <article className='flex flex-row p-4 bg-blue-gray-50' key={post.id}>
             <div className='mx-3'>

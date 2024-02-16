@@ -2,6 +2,7 @@ const express=require('express');
 const app=express();
 const things=require('./things');
 const todo=require('./todoserver')
+const post=require('./postServer')
 const cors = require('cors')
 const bodypaser=require('body-parser');
 const User=require('./models/model')
@@ -34,6 +35,7 @@ app.post('/mike',async(req,res,next )=>{
 
 app.use('/things',things)
 app.use('/todo',todo)
+app.use('/posts',post)
 
 
 app.get('/without-cors', (req, res, next) => {
